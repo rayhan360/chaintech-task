@@ -7,6 +7,8 @@ import Login from "./Pages/Login/Login.jsx";
 import Registration from "./Pages/Registration/Registration.jsx";
 import Profile from "./Pages/Profile/Profile.jsx";
 import AuthProvider from "./Provider/AuthProvider.jsx";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import Edit from "./components/Edit/Edit.jsx";
 
 const router = createBrowserRouter([
   {
@@ -25,14 +27,23 @@ const router = createBrowserRouter([
         path: "/account",
         element: <Profile></Profile>,
       },
+      {
+        path: "/edit-profile",
+        element: <Edit></Edit>
+        // loader: ({params}) => fetch(`http://localhost:3000/users/${params.id}`)
+      }
     ],
   },
 ]);
 
+const queryClient = new QueryClient();
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AuthProvider>
-      <RouterProvider router={router}></RouterProvider>
+    <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router}></RouterProvider>
+      </QueryClientProvider>
     </AuthProvider>
   </React.StrictMode>
 );
