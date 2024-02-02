@@ -16,8 +16,14 @@ const Registration = () => {
     const photo = e.target.photo.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
+    const phone = e.target.phoneNumber.value;
+    const linkedin = e.target.linkedinProfile.value;
+    const address = e.target.address.value;
+    const title = e.target.title.value;
+    const skill = e.target.skill.value;
+    const bio = e.target.bio.value;
 
-    const userInfo = { name, photo, email, password };
+    const userInfo = { name, photo, email, password, phone, linkedin, address, title, skill, bio };
     // validation
     if (password.length < 6) {
       toast.error("password should at least 6 character or longer").return;
@@ -36,7 +42,6 @@ const Registration = () => {
     createUser(email, password)
       .then((result) => {
         console.log(result.user);
-        // swal("Login Successful", "Welcome back!", "success");
         toast.success("user log in successful");
         e.target.reset;
 
@@ -105,7 +110,7 @@ const Registration = () => {
                 </div>
 
                 {/* Password Field */}
-                <div className="form-group">
+                <div className="form-group mb-2">
                   <input
                     type="password"
                     className="form-control"
@@ -113,6 +118,73 @@ const Registration = () => {
                     name="password"
                     placeholder="Enter your password"
                     required
+                  />
+                </div>
+
+                 {/* Phone Number Field */}
+                 <div className="form-group mb-2">
+                  <input
+                    type="tel"
+                    className="form-control"
+                    id="phoneNumber"
+                    name="phoneNumber"
+                    placeholder="Enter your phone number"
+                    required
+                  />
+                </div>
+
+                {/* Facebook Profile Link Field */}
+                <div className="form-group mb-2">
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="linkedinProfile"
+                    name="linkedinProfile"
+                    placeholder="Enter your LinkedIn profile link"
+                    required
+                  />
+                </div>
+
+                {/* Address Field */}
+                <div className="form-group mb-2">
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="address"
+                    name="address"
+                    placeholder="Enter your address"
+                    required
+                  />
+                </div>
+
+                {/* Title Fields */}
+                <div className="form-group mb-2">
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="title"
+                    name="title"
+                    placeholder="Enter Your Title"
+                  />
+                </div>
+                {/* Skill Fields */}
+                <div className="form-group mb-2">
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="skill"
+                    name="skill"
+                    placeholder="Enter Your Skill"
+                  />
+                </div>
+                {/* Bio Fields */}
+                <div className="form-group mb-2">
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="bio"
+                    name="bio"
+                    placeholder="Enter your Bio"
                   />
                 </div>
 
