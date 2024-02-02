@@ -45,7 +45,7 @@ const Registration = () => {
         toast.success("user log in successful");
         e.target.reset;
 
-        axios.post("http://localhost:3000/users", userInfo).then((res) => {
+        axios.post("https://chain-tech-backend.vercel.app/users", userInfo).then((res) => {
           console.log(res.data);
           if (res.data.insertedId) {
             console.log("user added");

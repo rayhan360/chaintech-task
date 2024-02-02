@@ -28,7 +28,7 @@ const Edit = () => {
     };
     
     // update information
-    axios.patch(`http://localhost:3000/users/${userProfile._id}`, userInfo)
+    axios.patch(`https://chain-tech-backend.vercel.app/users/${userProfile._id}`, userInfo)
     .then(res => {
         console.log(res.data);
         if (res.data.modifiedCount > 0) {
