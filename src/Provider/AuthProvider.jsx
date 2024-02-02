@@ -26,12 +26,6 @@ const AuthProvider = ({children}) => {
     return signOut(auth);
   };
 
-//   // user profile updated
-//   const updateUserProfile = (name) => {
-//     return updateProfile(auth.currentUser, {
-//       displayName: name,
-//     });
-//   };
 
   // observe account
   useEffect(() => {
@@ -48,7 +42,6 @@ const AuthProvider = ({children}) => {
     createUser,
     logIn,
     logOut,
-    // updateUserProfile,
   };
 
     return (

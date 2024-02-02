@@ -1,13 +1,10 @@
 import axios from "axios";
 import useUser from "../../hooks/useUser";
 import toast, { Toaster } from "react-hot-toast";
-import { useLocation, useNavigate } from "react-router-dom";
 
 const Edit = () => {
   const [users] = useUser();
   const userProfile = users[0];
-  const navigate = useNavigate();
-  const location = useLocation();
   const handleUpdate = (e) => {
     e.preventDefault();
     const name = e.target.name.value;
@@ -36,7 +33,6 @@ const Edit = () => {
         console.log(res.data);
         if (res.data.modifiedCount > 0) {
             toast.success("profile updated successfully")
-            navigate(location?.state ? location.state : "/");
         }
     })
   };

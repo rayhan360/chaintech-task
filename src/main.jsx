@@ -9,6 +9,7 @@ import Profile from "./Pages/Profile/Profile.jsx";
 import AuthProvider from "./Provider/AuthProvider.jsx";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Edit from "./components/Edit/Edit.jsx";
+import PrivateRoute from "./Router/PrivateRoute.jsx";
 
 const router = createBrowserRouter([
   {
@@ -25,12 +26,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/account",
-        element: <Profile></Profile>,
+        element: <PrivateRoute><Profile></Profile></PrivateRoute>,
       },
       {
         path: "/edit-profile",
         element: <Edit></Edit>
-        // loader: ({params}) => fetch(`http://localhost:3000/users/${params.id}`)
       }
     ],
   },

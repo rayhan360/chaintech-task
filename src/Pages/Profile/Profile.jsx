@@ -5,8 +5,6 @@ import useUser from "../../hooks/useUser";
 const Profile = () => {     
   const [users] = useUser();
   const userProfile = users[0];
-  
-
   return (
     <div className="container mt-5">
       <div className="row justify-content-center">
@@ -33,13 +31,13 @@ const Profile = () => {
                   <strong>Phone Number:</strong> {userProfile?.phone}
                 </li>
                 <li className="list-group-item">
-                  <strong>LinkedIn:</strong>{" "}
+                  
                   <a
                     href={userProfile?.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    {userProfile?.linkedin}
+                    <strong>LinkedIn:</strong>{" "}
                   </a>
                 </li>
                 <li className="list-group-item">

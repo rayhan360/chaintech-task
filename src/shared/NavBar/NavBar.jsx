@@ -7,15 +7,15 @@ const NavBar = () => {
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div className="container">
+      <div className="container-fluid">
         <Link className="navbar-brand" to="/">
           User Manage
         </Link>
         <button
           className="navbar-toggler"
           type="button"
-          data-toggle="collapse"
-          data-target="#navbarNav"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
           aria-controls="navbarNav"
           aria-expanded="false"
           aria-label="Toggle navigation"
@@ -26,7 +26,11 @@ const NavBar = () => {
           <ul className="navbar-nav ml-auto">
             {user ? (
               <li className="nav-item">
-                <button onClick={logOut} type="button" className="btn btn-outline-light">
+                <button
+                  onClick={logOut}
+                  type="button"
+                  className="btn btn-outline-light"
+                >
                   Log Out
                 </button>
               </li>
