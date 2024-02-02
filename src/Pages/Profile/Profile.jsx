@@ -1,23 +1,11 @@
-import { useContext } from "react";
-import { AuthContext } from "../../Provider/AuthProvider";
-import axios from "axios";
-import { useQuery } from "@tanstack/react-query";
+
 import { Link } from "react-router-dom";
+import useUser from "../../hooks/useUser";
 
-const Profile = () => {
-  const { user } = useContext(AuthContext);
-
-  const { data: users = [] } = useQuery({
-    queryKey: ["users", user?.email],
-    queryFn: async () => {
-      const res = await axios.get(
-        `http://localhost:3000/users?email=${user?.email}`
-      );
-      return res.data;
-    },
-  });
-
-  const userProfile = users[0]; 
+const Profile = () => {     
+  const [users] = useUser();
+  const userProfile = users[0];
+  
 
   return (
     <div className="container mt-5">
@@ -46,7 +34,11 @@ const Profile = () => {
                 </li>
                 <li className="list-group-item">
                   <strong>LinkedIn:</strong>{" "}
-                  <a href={userProfile?.linkedin} target="_blank" rel="noopener noreferrer">
+                  <a
+                    href={userProfile?.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     {userProfile?.linkedin}
                   </a>
                 </li>
